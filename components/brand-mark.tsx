@@ -15,6 +15,7 @@ export function BrandMark({
       className={cn('group flex items-center gap-3', className)}
       aria-label="Cox Creative Partners home"
     >
+      
       <span className="relative flex size-11 items-center justify-center overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-black/5 transition-transform duration-300 group-hover:scale-105">
         <Image
           src="/images/ccp-texas-logo.png"
