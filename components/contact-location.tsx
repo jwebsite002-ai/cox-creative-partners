@@ -14,10 +14,67 @@ const projectTypes = [
 
 export function ContactLocation() {
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setSubmitted(true)
+
+    setSubmitting(true)
+    setError('')
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+
+    const payload = {
+      name: formData.get('name'),
+      company: formData.get('company'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      projectType: formData.get('type'),
+      message: formData.get('message'),
+    }
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      })
+
+      const text = await response.text()
+
+      let data: any = {}
+
+      if (text) {
+        try {
+          data = JSON.parse(text)
+        } catch {
+          console.error('Non-JSON response:', text)
+        }
+      }
+
+      if (!response.ok) {
+        throw new Error(
+          data.error || `Unable to send your inquiry. (${response.status})`
+        )
+      }
+
+      setSubmitted(true)
+      form.reset()
+    } catch (err) {
+      console.error('Contact form error:', err)
+
+      setError(
+        err instanceof Error
+          ? err.message
+          : 'Unable to send your inquiry. Please try again.'
+      )
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -99,7 +156,13 @@ export function ContactLocation() {
                 </div>
 
                 <Field label="Project Type" htmlFor="type">
-                  <select id="type" name="type" className={inputCls} defaultValue="">
+                  <select
+                    id="type"
+                    name="type"
+                    required
+                    className={inputCls}
+                    defaultValue=""
+                  >
                     <option value="" disabled>
                       Select a project type
                     </option>
@@ -116,18 +179,28 @@ export function ContactLocation() {
                     id="message"
                     name="message"
                     rows={4}
+                    required
                     className={`${inputCls} resize-none`}
                     placeholder="What experience do you want to create?"
                   />
                 </Field>
-
                 <button
                   type="submit"
-                  className="group mt-1 inline-flex items-center justify-center gap-2.5 rounded-md bg-primary px-6 py-3.5 font-display text-sm font-medium uppercase tracking-wider text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-10px_var(--primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-card"
+                  disabled={submitting}
+                  className="group mt-1 inline-flex items-center justify-center gap-2.5 rounded-md bg-primary px-6 py-3.5 font-display text-sm font-medium uppercase tracking-wider text-primary-foreground transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-10px_var(--primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-card disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  Schedule an On-Site Consultation
-                  <Send className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  {submitting ? 'Sending...' : 'Schedule an On-Site Consultation'}
+
+                  {!submitting && (
+                    <Send className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  )}
                 </button>
+
+                {error && (
+                  <p role="alert" className="text-sm font-medium text-red-600">
+                    {error}
+                  </p>
+                )}
               </form>
             )}
           </Reveal>
