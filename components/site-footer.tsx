@@ -84,7 +84,7 @@ export function SiteFooter() {
             &copy; {new Date().getFullYear()} Cox Creative Partners. All rights reserved.
           </p>
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-secondary-foreground/50">
-            Collaborate. Consult. Deliver.
+            Collaborate. Consult. Create.
           </p>
         </div>
       </div>

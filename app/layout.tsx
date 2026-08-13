@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Cox Creative Partners',
     description:
-      'Creating experiences. Transforming environments. Delivering immersive experiences.',
+      'Creating Experiences. Transforming Environments. Bringing Destinations to Life.',
     type: 'website',
   },
 }

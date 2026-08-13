@@ -86,11 +86,10 @@ export function ContactLocation() {
             Contact Us
           </p>
           <h2 className="mt-5 font-display text-3xl font-bold uppercase leading-tight tracking-tight text-balance sm:text-4xl lg:text-5xl">
-            What could your environment become?
+            HAVE A PROPERTY IN MIND?
           </h2>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground text-pretty">
-            Sometimes the best ideas start by simply walking the property together.
-            Tell us about your space and we&apos;ll bring the vision.
+            You don’t need to know exactly what you need. That’s where we come in. Let’s walk the property, talk about your goals, identify opportunities, and explore what’s possible together.
           </p>
         </Reveal>
 

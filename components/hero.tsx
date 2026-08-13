@@ -40,7 +40,7 @@ export function Hero() {
               className="animate-fade-up block text-primary"
               style={{ animationDelay: '0.34s' }}
             >
-              Delivering Immersive Experiences.
+              Bringing Destinations to Life.
             </span>
           </h1>
 

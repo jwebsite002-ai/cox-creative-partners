@@ -49,7 +49,7 @@ export function Experiences() {
             Experiences We Create
           </p>
           <h2 className="mt-5 max-w-2xl font-display text-3xl font-bold uppercase leading-tight tracking-tight text-balance sm:text-4xl">
-            Every touchpoint, engineered to be remembered
+            Every touchpoint, thoughtfully designed to be remembered.
           </h2>
         </Reveal>
 

@@ -15,7 +15,7 @@ const features = [
   {
     icon: ClipboardCheck,
     title: 'Purposeful Design',
-    copy: 'Environments engineered to tell your story with intent.',
+    copy: 'Environments thoughtfully designed to tell your story with purpose.',
   },
   {
     icon: MapPin,

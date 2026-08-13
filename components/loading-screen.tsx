@@ -74,7 +74,7 @@ export function LoadingScreen() {
           <span className="text-primary">Cox</span> Creative Partners
         </p>
         <p className="mt-2 text-xs uppercase tracking-[0.3em] text-white/50">
-          Collaborate. Consult. Deliver.
+          Collaborate. Consult. Create.
         </p>
 
         <div className="mt-8 h-px w-40 overflow-hidden rounded-full bg-white/15">

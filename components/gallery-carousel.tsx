@@ -18,6 +18,11 @@ const slides = [
     caption: 'A seasonal light experience guests travel miles to see.',
   },
   {
+    src: '/images/immersive-tunnel2.png',
+    title: 'Immersive Drive-Through',
+    caption: 'A seasonal light experience guests travel miles to see.',
+  },
+  {
     src: '/images/building-hospitality.png',
     title: 'Hospitality Ambience',
     caption: 'Programmable interior environments tuned to mood and moment.',
@@ -61,7 +66,7 @@ export function GalleryCarousel() {
           <div className="max-w-xl">
             <p className="flex items-center gap-3 font-display text-xs font-medium uppercase tracking-[0.3em] text-primary">
               <span className="h-px w-8 bg-primary" />
-              Selected Environments
+              Imagine What’s Possible
             </p>
             <h2 className="mt-5 font-display text-3xl font-bold uppercase leading-tight tracking-tight text-balance sm:text-4xl">
               Where design, technology and light converge
@@ -78,7 +83,7 @@ export function GalleryCarousel() {
             className="relative aspect-[16/10] w-full sm:aspect-[16/8] lg:aspect-[16/7]"
             role="region"
             aria-roledescription="carousel"
-            aria-label="Selected environments"
+            aria-label="Imagine What’s Possible"
             tabIndex={0}
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
