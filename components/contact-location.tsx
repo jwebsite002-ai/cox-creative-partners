@@ -220,7 +220,7 @@ export function ContactLocation() {
                 <ContactRow
                   icon={Phone}
                   label="Phone"
-                  value="940-252-5526"
+                  value="945-334-4277"
                   href="tel:9402525526"
                 />
                 <ContactRow

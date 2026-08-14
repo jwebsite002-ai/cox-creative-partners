@@ -63,7 +63,7 @@ export function SiteFooter() {
                   className="flex items-center gap-3 text-secondary-foreground/80 transition-colors hover:text-primary"
                 >
                   <Phone className="size-4 shrink-0 text-primary" aria-hidden="true" />
-                  940-252-5526
+                  945-334-4277
                 </a>
               </li>
               <li>
